@@ -1,0 +1,47 @@
+nav {
+  display: flex;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: antiquewhite;
+}
+
+#logo {
+  display: inline-block;
+  text-align: center;
+  margin-left: 50px;
+}
+
+#logo h1 {
+  margin: 0;
+}
+
+#logo hr {
+  margin: 5px 0;
+  border: none;
+  border-top: 2px solid black;
+}
+
+#nav-links {
+  display: flex;
+  gap: 40px;
+  margin-left: 550px;
+}
+
+
+#nav-links a {
+  text-decoration: none;
+  color: black;
+  font-size: larger;
+  font-weight: 600;
+  border: 2px black solid;
+  padding: 8px;
+  transition: background-color 0.4s;
+  transition: transform 0.4s;
+  border-radius: 4px;
+
+}
+
+#nav-links a:hover {
+    background-color: white;
+    transform: scale(1.1);
+}
