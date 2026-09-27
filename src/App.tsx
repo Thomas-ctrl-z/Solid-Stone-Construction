@@ -1,6 +1,7 @@
 import "./assets/App.css";
 import "./assets/Navbar.css";
 import "./assets/Hero.css";
+import "./assets/Footer.css";
 
 
 function Navbar(){
@@ -88,9 +89,43 @@ function Contact() {
 
 function Footer() {
   return(
-    <div>
-      <p>Footer</p>
-    </div>
+    <footer>
+      <div className="footer-content">
+        <div>
+          <h3>SolidStone Construction</h3>
+
+          <p>
+            Reliable construction and renovation services
+            for residential and commercial projects.
+          </p>
+        </div>
+
+        <div>
+          <h3>Company</h3>
+
+          <ul>
+            <li><a href="">About</a></li>
+            <li><a href="">Projects</a></li>
+            <li><a href="">Services</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Contact</h3>
+
+          <ul>
+            {/* Add Icons for Address, phone and email */}
+            <li>123 Main Street</li>
+            <li>(555) 437-1988</li>
+            <li>solidstonebuilds@gmail.com</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="copyright">
+        © 2026 SolidStone Construction. All rights reserved.
+      </div>
+    </footer>
   );
 }
 
