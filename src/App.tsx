@@ -2,31 +2,32 @@ import "./assets/App.css";
 import "./assets/Navbar.css";
 import "./assets/Hero.css";
 import "./assets/Footer.css";
+import "./assets/projects.css";
 
 
 function Navbar(){
   return (
-    <nav>
-      <div id="logo">
-        <a href="">
-          <h1 className="text-lg font-semibold">SolidStone</h1>
-            <hr></hr>
-          <h1 className="text-lg font-semibold">Construction</h1>
-        </a>
-       
-      </div>
-      
-      <div id="nav-links" >
-        <a href="">Home</a>
-        <a href="">About</a>
-        <a href="">Services</a>
-        <a href="">Projects</a>
-        <a href="">Contact Us</a>
-      </div>
+      <header>
+        <nav>
+          <div id="logo">
+            <a href="">
+              <h1>SolidStone</h1>
+                <hr></hr>
+              <h1>Construction</h1>
+            </a>
+          
+          </div>
+          
+          <div id="nav-links" >
+            <a href="">Home</a>
+            <a href="">About</a>
+            <a href="">Services</a>
+            <a href="">Projects</a>
+            <a href="">Contact Us</a>
+          </div>
 
-    </nav>
-
-    
+        </nav>
+      </header>
   );
 }
 
@@ -49,36 +50,100 @@ function HeroPage() {
 }
 
 
-function Services() {
-  return(
-    <div>
-      <p>Services</p>
-    </div>
-  );
-}
-
-
 function About() {
   return(
-    <div>
-      <h2>About Us</h2>
-    </div>
+    <section id="About">
+      <div>
+        <h2>About Us</h2>
+      </div>
+    </section>
   );
 }
 
+
+function Services() {
+  return(
+    <section id="Services">
+      <div>
+        <p>Services</p>
+      </div>
+    </section>
+  );
+}
 
 function Projects() {
   return(
-    <div>
-      <img src="" alt="" />
-      <p>Projects we've worked on</p>
-    </div>
+
+    <section id="Projects">
+      <div id="project-subtext">
+        <h1>Projects</h1>
+        <p>A showcase of the spaces we’ve built, renovated, and brought to life — 
+          each project reflecting our commitment to quality, precision, and lasting results.
+        </p>
+
+      </div>
+        
+
+        {/* Make the project container itself smaller so that the figures fit better inside it  
+        Maybe border radius the edges?
+        Work on Header and subtext Heading
+        3 x 3 x 2 Doesnt look too bad
+        
+        Do the import method for the images.*/}
+
+        
+        <div id="projects-container">
+          <figure className="project-item">
+            <img src="src\assets\Images\Projects\build.jpg" alt="Red Corporate building" />
+            <figcaption> Demo Information </figcaption>
+          </figure>
+
+          <figure className="project-item">
+            <img src="src\assets\Images\Projects\corporate 2.jpg" alt="Interior of Corporate Building" />
+            <figcaption> Demo Information </figcaption>
+          </figure>
+
+          <figure className="project-item">
+            <img src="src\assets\Images\Projects\corporate1.jpg" alt="Corporate Building" />
+            <figcaption> Demo Information </figcaption>
+          </figure>
+
+          <figure className="project-item">
+            <img src="src\assets\Images\Projects\elifin.jpg" alt="Corporate Building" />
+            <figcaption> Demo Information </figcaption>
+          </figure>
+
+          <figure className="project-item">
+            <img src="src\assets\Images\Projects\maciej.jpg" alt="Corporate Building" />
+            <figcaption> Demo Information </figcaption>
+          </figure>
+
+          <figure className="project-item">
+            <img src="src\assets\Images\Projects\photo.jpg" alt="Residential Building" />
+            <figcaption> Demo Information </figcaption>
+          </figure>
+
+          <figure className="project-item">
+            <img src="src/assets/Images/Projects/renovation.jpg" alt="Renovated Interior" />
+            <figcaption> Demo Information </figcaption>
+          </figure>
+
+          <figure className="project-item">
+            <img src="src\assets\Images\Projects\residential.jpg" alt="Residential Building" />
+            <figcaption> Demo Information </figcaption>
+          </figure>
+
+        </div>
+    </section>
   );
 }
 
 
 function Contact() {
   return(
+
+    // contact information vs contact form. Options.
+
     <form action="">
       <label htmlFor=""></label>
       <input type="text" />
@@ -138,8 +203,8 @@ function App() {
     <>
       <Navbar />
       <HeroPage />
-      <Services />
       <About />
+      <Services />
       <Projects />
       <Contact />
       <Footer />
