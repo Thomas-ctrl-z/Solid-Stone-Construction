@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {Routes, Route, Link} from "react-router";
 
 import "./assets/App.css";
 import "./assets/Navbar.css";
@@ -7,6 +8,9 @@ import "./assets/Footer.css";
 import "./assets/projects.css";
 import "./assets/About.css";
 import "./assets/services.css";
+
+import Contact from "./pages/Contact";
+import Quote from "./pages/Quote";
 
 import redCorporate from "./assets/Images/Projects/build.jpg";
 import corporateInterior from "./assets/Images/Projects/corporate 2.jpg";
@@ -35,11 +39,11 @@ function Navbar(){
           </div>
           
           <div id="nav-links" >
-            <a href="">Home</a>
-            <a href="">About</a>
-            <a href="">Services</a>
-            <a href="">Projects</a>
-            <a href="">Contact Us</a>
+            <Link to={"/"}>Home</Link>
+            <a href="#About">About</a>
+            <a href="#Services">Services</a>
+            <a href="#Projects">Projects</a>
+            <Link to="/Contact">Contact Us</Link>
           </div>
 
         </nav>
@@ -173,7 +177,7 @@ function About() {
 
 function Services() {
   return(
-    <section className="section-style">
+    <section id="Services" className="section-style">
 
       <div id="services-container">
 
@@ -222,7 +226,7 @@ function Services() {
 function Projects() {
   return(
 
-    <section className="section-style">
+    <section id="Projects" className="section-style">
 
       <div id="project-container">
 
@@ -286,19 +290,6 @@ function Projects() {
 }
 
 
-function Contact() {
-  return(
-
-    // contact information vs contact form. Options.
-
-    <form action="">
-      <label htmlFor=""></label>
-      <input type="text" />
-    </form>
-  );
-}
-
-
 function Footer() {
   return(
     <footer>
@@ -349,14 +340,25 @@ function App() {
   return (
     <>
       <Navbar />
-      <HeroPage />
-      <About />
-      <Services />
-      <Projects />
-      <Contact />
-      <Footer />
+
+      <Routes>
+        <Route path="/" element={
+          <>
+            <HeroPage />
+            <About />
+            <Services />
+            <Projects />
+            <Footer />
+          </>
+        }/>
+
+        <Route path="/Contact" element={<Contact />} />
+        <Route path="/Quote" element={<Quote />} />
+
+      </Routes>
 
     </>
+    
   );
 }
 
