@@ -56,9 +56,14 @@ function HeroPage() {
       <div className="hero-image image3"></div>
      
     <div className="hero-content">
-        <p>
-          When Safety, Stability and Trust are Necessary 
-        </p>
+        <h1>BUILT ON TRUST.</h1>
+        <h1>DRIVEN BY COMMITMENT.</h1>
+
+        <h2>No matter the size or scope of the project, we bring <span id="emphasis">100%</span> Reliability, Trust, and Commitment
+          to every build.
+        </h2>
+
+        <button id="quote-btn">GET A QUOTE NOW</button>
     </div>
 
     </section>
