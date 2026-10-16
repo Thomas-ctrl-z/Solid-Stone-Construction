@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {Routes, Route, Link} from "react-router";
+import { useLocation } from "react-router";
 
 import "./assets/App.css";
 import "./assets/Navbar.css";
@@ -8,6 +9,8 @@ import "./assets/Footer.css";
 import "./assets/projects.css";
 import "./assets/About.css";
 import "./assets/services.css";
+import "./assets/quote.css";
+import "./assets/contact.css";
 
 import Contact from "./pages/Contact";
 import Quote from "./pages/Quote";
@@ -26,8 +29,19 @@ import residential2 from "./assets/Images/Projects/residential.jpg";
 
 
 function Navbar(){
+
+  const { pathname } = useLocation();
+  const isHomePage = pathname === "/";
+
   return (
-      <header>
+      <header style={{
+        position: isHomePage ? "fixed" : "static",
+        background: isHomePage ? "none" : "green",
+        top: 0,
+        left: 0,
+        width: "100%",
+        zIndex: 10,
+              }}>
         <nav>
           <div id="logo">
             <a href="">
@@ -52,6 +66,11 @@ function Navbar(){
 }
 
 function HeroPage() {
+
+  const webpageTransition = () => {
+    window.location.href = "/Quote";
+  };
+
   return(
     <section id="Hero">
 
@@ -67,7 +86,7 @@ function HeroPage() {
           to every build.
         </h2>
 
-        <button id="quote-btn">GET A QUOTE NOW</button>
+        <button id="quote-btn" onClick={webpageTransition}>GET A QUOTE NOW</button>
     </div>
 
     </section>
@@ -348,7 +367,7 @@ function App() {
             <About />
             <Services />
             <Projects />
-            <Footer />
+
           </>
         }/>
 
@@ -356,6 +375,8 @@ function App() {
         <Route path="/Quote" element={<Quote />} />
 
       </Routes>
+
+      <Footer />
 
     </>
     

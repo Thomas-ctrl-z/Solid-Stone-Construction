@@ -1,12 +1,19 @@
 @import "tailwindcss";
 
 
+#root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 html {
     scroll-behavior: smooth;
 }
 
 body {
     font-family: Arial, sans-serif;
+    background: #f1f5f9;
   
 }
 

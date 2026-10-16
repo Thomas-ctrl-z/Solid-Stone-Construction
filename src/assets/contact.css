@@ -1,0 +1,120 @@
+
+ 
+#form-container {
+    max-width: 650px;
+    margin: 20px auto;
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    font-family: Arial, sans-serif;
+}
+
+#form-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#form-container h1 {
+    margin: 0 0 10px;
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #0f172a;
+}
+
+#form-container p {
+    margin-bottom: 40px;
+    color: #64748b;
+    font-size: 15px;
+}
+
+#contact-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 18px;
+}
+
+#contact-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #334155;
+}
+
+#contact-form input,
+#contact-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: #f8fafc;
+    font: inherit;
+    font-size: 15px;
+    color: #0f172a;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    background: #ffffff;
+}
+
+#contact-form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+#contact-form label:nth-of-type(5),
+#contact-form label:nth-of-type(6) {
+    grid-column: 1 / -1;
+}
+
+#contact-form input::placeholder {
+    color: #94a3b8;
+}
+
+@media (max-width: 600px) {
+    #form-container {
+        margin: 20px 12px;
+        padding: 24px;
+    }
+
+    #form-container h1 {
+        font-size: 25px;
+    }
+
+    #contact-form {
+        grid-template-columns: 1fr;
+    }
+
+    #contact-form label {
+        grid-column: 1 / -1;
+    }
+}
+
+#contact-form button {
+    grid-column: 1 / -1;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#contact-form button:hover {
+    background: #1d4ed8;
+}
