@@ -1,7 +1,7 @@
 
  
-#form-container {
-    max-width: 650px;
+.form-container {
+    max-width: 700px;
     margin: 20px auto;
     padding: 40px;
     background: #ffffff;
@@ -18,7 +18,7 @@
 }
 
 
-#form-container h1 {
+.form-container h1 {
     margin: 0 0 10px;
     font-size: 30px;
     font-weight: 400;
@@ -26,7 +26,7 @@
     color: #0f172a;
 }
 
-#form-container p {
+.form-container p {
     margin-bottom: 40px;
     color: #64748b;
     font-size: 15px;
@@ -38,7 +38,7 @@
     gap: 22px 18px;
 }
 
-#contact-form label {
+.form-label {
     display: flex;
     flex-direction: column;
     gap: 9px;
@@ -47,11 +47,11 @@
     color: #334155;
 }
 
-#contact-form input,
-#contact-form textarea {
+.form-input,
+.form-textarea {
     width: 100%;
     box-sizing: border-box;
-    padding: 13px 14px;
+    padding: 10px 14px;
     border: 1px solid #cbd5e1;
     border-radius: 8px;
     background: #f8fafc;
@@ -61,48 +61,29 @@
     transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-#contact-form input:focus,
-#contact-form textarea:focus {
+.form-input:focus,
+.form-textarea:focus {
     outline: none;
     border-color: #3b82f6;
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
     background: #ffffff;
 }
 
-#contact-form textarea {
+.form-textarea {
     min-height: 150px;
     resize: vertical;
 }
 
-#contact-form label:nth-of-type(5),
-#contact-form label:nth-of-type(6) {
+.form-label-5,
+.form-label-6 {
     grid-column: 1 / -1;
 }
 
-#contact-form input::placeholder {
+.form-input::placeholder {
     color: #94a3b8;
 }
 
-@media (max-width: 600px) {
-    #form-container {
-        margin: 20px 12px;
-        padding: 24px;
-    }
-
-    #form-container h1 {
-        font-size: 25px;
-    }
-
-    #contact-form {
-        grid-template-columns: 1fr;
-    }
-
-    #contact-form label {
-        grid-column: 1 / -1;
-    }
-}
-
-#contact-form button {
+.form-btn {
     grid-column: 1 / -1;
     padding: 14px;
     border: none;
@@ -115,6 +96,58 @@
     transition: background 0.2s;
 }
 
-#contact-form button:hover {
+.form-btn:hover {
     background: #1d4ed8;
+}
+
+#popup-msg {
+    position: fixed;
+    top: 100px;
+    right: -350px;
+    width: 300px;
+
+    background: white;
+
+    padding: 1rem 1.2rem;
+
+    border-left: 6px solid #2563eb;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+
+    z-index: 2000;
+
+    transition: 0.4s ease;
+    opacity: 0;
+}
+
+
+#popup-msg.active {
+    right: 20px;
+    opacity: 1;
+}
+
+#popup-msg p{
+    color: #555;
+
+    font-size: 1.2rem;
+}
+
+
+@media (max-width: 600px) {
+    .form-container {
+        margin: 20px 12px;
+        padding: 24px;
+    }
+
+    .form-container h1 {
+        font-size: 25px;
+    }
+
+    #contact-form {
+        grid-template-columns: 1fr;
+    }
+
+    .form-label {
+        grid-column: 1 / -1;
+    }
 }

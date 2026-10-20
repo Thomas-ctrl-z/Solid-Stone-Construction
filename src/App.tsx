@@ -2,15 +2,16 @@ import { useState } from "react";
 import {Routes, Route, Link} from "react-router";
 import { useLocation } from "react-router";
 
-import "./assets/App.css";
-import "./assets/Navbar.css";
-import "./assets/Hero.css";
-import "./assets/Footer.css";
-import "./assets/projects.css";
-import "./assets/About.css";
-import "./assets/services.css";
-import "./assets/quote.css";
-import "./assets/contact.css";
+import "./assets/Stylesheets/App.css";
+import "./assets/Stylesheets/About.css";
+import "./assets/Stylesheets/Footer.css";
+import "./assets/Stylesheets/Hero.css";
+import "./assets/Stylesheets/Navbar.css";
+import "./assets/Stylesheets/contact.css";
+import "./assets/Stylesheets/projects.css";
+import "./assets/Stylesheets/quote.css";
+import "./assets/Stylesheets/services.css";
+
 
 import Contact from "./pages/Contact";
 import Quote from "./pages/Quote";
