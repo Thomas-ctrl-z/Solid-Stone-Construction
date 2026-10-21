@@ -1,6 +1,7 @@
 import { useState } from "react";
 import {Routes, Route, Link} from "react-router";
 import { useLocation } from "react-router";
+import { useEffect } from "react";
 
 import "./assets/Stylesheets/App.css";
 import "./assets/Stylesheets/About.css";
@@ -34,10 +35,34 @@ function Navbar(){
   const { pathname } = useLocation();
   const isHomePage = pathname === "/";
 
+  useEffect(() => {
+    if (!isHomePage) return;
+
+    const header = document.getElementById("header-scroll");
+    if (!(header instanceof HTMLElement)) return;
+
+
+    const handleScroll = () => {
+    
+    let scroll = Math.min(window.scrollY / 500, 1);
+
+    scroll = 1 - Math.pow(1 - scroll, 3);
+
+    header.style.backgroundColor = `rgba(23, 26, 24, ${scroll})`;
+
+   };
+     
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  
+  }, [isHomePage]);
+
   return (
-      <header style={{
+      <header id="header-scroll" style={{
         position: isHomePage ? "fixed" : "static",
-        background: isHomePage ? "none" : "green",
+        background: isHomePage ? "none" : "#171a18",
         top: 0,
         left: 0,
         width: "100%",
