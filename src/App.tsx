@@ -128,7 +128,7 @@ function HeroPage() {
           to every build.
         </h2>
 
-        <button id="quote-btn" onClick={webpageTransition}>GET A QUOTE NOW</button>
+        <button id="quote-btn" onClick={webpageTransition}>Request A Quote</button>
     </div>
 
     </section>
