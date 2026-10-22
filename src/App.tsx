@@ -32,10 +32,26 @@ import residential2 from "./assets/Images/Projects/residential.jpg";
 
 function Navbar(){
 
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   const isHomePage = pathname === "/";
 
+
   useEffect(() => {
+
+    //Navbar Links proper routing and screen top positioning on new page.
+    if (hash) {
+      requestAnimationFrame(() => {
+        document
+        .getElementById(decodeURIComponent(hash.slice(1)))
+        ?.scrollIntoView({ behavior: "smooth" });
+      }); 
+    } else {
+      window.scrollTo({ top: 0, behavior: "auto"});
+    }
+
+
+
+    //header background scroll functionality
     if (!isHomePage) return;
 
     const header = document.getElementById("header-scroll");
@@ -57,7 +73,7 @@ function Navbar(){
 
     return () => window.removeEventListener("scroll", handleScroll);
   
-  }, [isHomePage]);
+  }, [pathname, hash, isHomePage]);
 
   return (
       <header id="header-scroll" style={{
@@ -80,9 +96,9 @@ function Navbar(){
           
           <div id="nav-links" >
             <Link to={"/"}>Home</Link>
-            <a href="#About">About</a>
-            <a href="#Services">Services</a>
-            <a href="#Projects">Projects</a>
+            <Link to={"/#About"}>About</Link>
+            <Link to={"/#Services"}>Services</Link>
+            <Link to={"/#Projects"}>Projects</Link>
             <Link to="/Contact">Contact Us</Link>
           </div>
 
