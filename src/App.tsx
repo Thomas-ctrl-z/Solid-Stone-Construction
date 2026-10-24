@@ -2,6 +2,8 @@ import { useState } from "react";
 import {Routes, Route, Link} from "react-router";
 import { useLocation } from "react-router";
 import { useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 import "./assets/Stylesheets/App.css";
 import "./assets/Stylesheets/About.css";
@@ -25,6 +27,10 @@ import corporate3 from "./assets/Images/Projects/maciej.jpg";
 import residential1 from "./assets/Images/Projects/photo.jpg";
 import renovatedInterior from "./assets/Images/Projects/renovation.jpg";
 import residential2 from "./assets/Images/Projects/residential.jpg";
+import bankCorporate from "./assets/Images/Projects/Jccb-bank.jpg";
+
+import architects from "./assets/Images/thisisengineering.jpg";
+
 
 
 
@@ -86,12 +92,11 @@ function Navbar(){
               }}>
         <nav>
           <div id="logo">
-            <a href="">
+            
               <h1>SolidStone</h1>
                 <hr></hr>
               <h1>Construction</h1>
-            </a>
-          
+    
           </div>
           
           <div id="nav-links" >
@@ -139,27 +144,43 @@ function HeroPage() {
 function About() {
   const reasons = [
     {
+      heading: "",
+      number: "",
+      title: "Who we are?",
+      text: "At SolidStone Construction, we’re more than just a company. We’re a family built on trust, respect, and a shared commitment to our clients. Our work is guided by the core values that define who we are and ensure every project is handled with care, integrity, and professionalism. ",
+      stats: [
+        { value: "15+", label: "Years Experience"},
+        { value: "120+", label: "Projects Completed"},
+        { value: "98%", label: "Client Satisfaction"}
+      ]
+    },
+
+    {
+      heading: "Why work with us?",
       number: "01",
       title: "Reliability",
-      text: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos."
+      text: "We take pride in delivering dependable construction services, ensuring every project is completed with care, consistency, and attention to detail. Our team remains committed to meeting deadlines and maintaining the standards our clients deserve."
     },
 
     {
+      heading: "Why work with us?",
       number: "02",
       title: "Trust",
-      text: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos."
+      text: "We believe every successful project begins with honest communication and transparency. From the initial consultation to the final inspection, we keep our clients informed, respect their decisions, and work hard to build lasting relationships."
     },
 
     {
+      heading: "Why work with us?",
       number: "03",
       title: "Safety",
-      text: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos."
+      text: "We prioritize the safety of our workers, clients, and surrounding communities throughout every stage of construction. By following proper procedures, maintaining organized workspaces, and using appropriate equipment, we strive to create a safer environment for everyone."
     },
 
     {
+      heading: "Why work with us?",
       number: "04",
       title: "Experience",
-      text: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos."
+      text: "Our experience allows us to approach every project with practical knowledge, skilled workmanship, and careful planning. We understand the importance of quality results and use our expertise to turn our clients' visions into durable, functional spaces."
     }
   ];
 
@@ -180,50 +201,63 @@ function About() {
 
 
   return(
-    <section id="About" className="section-style">
+    <section id="About" className="section-style bg-white">
 
       <div id="about-container">
 
-        <div id="about-statement" className="about-column">
-          {/* Heading  */}
-          <h2>Who we are?</h2>
-          
-          {/* Introductory statement:  */}
-          <p>
-            SolidStone Construction is not just a company but a family oriented team, built on trust and respect for each other
-            and the clients that we work with. 
-          </p>
-            
-        </div>
+        <img src={architects} alt="Construction professionals designing" />
+
+
 
         {/* Slide Show of reasons why */}
 
         <div id="slideshow-container" className="about-column">
-          <h2>Why Work with us?</h2>
 
-          <div key={currentSlide}  className="slide">
+          <div key={currentSlide}  className="slide"> 
 
-            <span>{reasons[currentSlide].number}</span>
+            {currentSlide == 0 ? (
+              <div className="who-we-are">
+                <span className="about-eyebrow">ABOUT SOLIDSTONE</span>
 
-            <h2>{reasons[currentSlide].title}</h2>
+                <h2>{reasons[currentSlide].title}</h2>
+                <p>{reasons[currentSlide].text}</p>
 
-            <p>{reasons[currentSlide].text}</p>
+                <div className="about-stats">
+                  {reasons[currentSlide].stats?.map((stat) => (
+                    <div className="stat"key={stat.label}>
+                      <span className="stat-number">{stat.value}</span>
+                      <span className="stat-label">{stat.label}</span>
+                    </div>
 
+                  ))}
+
+                </div>
+              </div>
+              
+            ) : (
+
+              <>
+                <h2 className="text-center">{reasons[currentSlide].heading}</h2>
+                <span className="text-center block">{reasons[currentSlide].number}</span>
+                <h2 className="text-center">{reasons[currentSlide].title}</h2>
+                <p className="text-left">{reasons[currentSlide].text}</p>
+              </>
+
+            )}
             
           </div>
 
           <div id="slideshow-nav">
 
               <button className="nav-btn" onClick={previosSlideTransition}>
-                Left</button>
+                <FontAwesomeIcon icon={faAngleLeft} /> </button>
 
-              <span>1</span>
-              <span>2</span>
-              <span>3</span>
-              <span>4</span>
+              <span>
+                {currentSlide + 1} / {reasons.length}
+              </span>
 
               <button className="nav-btn" onClick={nextSlideTransition}>
-                Right</button>
+                <FontAwesomeIcon icon={faAngleRight} /> </button>
 
             </div>
 
@@ -238,7 +272,7 @@ function About() {
 
 function Services() {
   return(
-    <section id="Services" className="section-style">
+    <section id="Services" className="section-style ">
 
       <div id="services-container">
 
@@ -285,67 +319,127 @@ function Services() {
 }
 
 function Projects() {
+
+  const [currentSet, nextSet] = useState(0);
+
+  const projects = [
+    {
+      image: redCorporate,
+      alt: "Red corporate building",
+      title: "Corporate Exterior",
+      type: "Commercial Construction",
+    },
+    {
+      image: corporateInterior,
+      alt: "Corporate building interior",
+      title: "Modern Office Interior",
+      type: "Commercial Interior",
+    },
+    {
+      image: corporate1,
+      alt: "Corporate building",
+      title: "Corporate Development",
+      type: "Commercial Construction",
+    },
+    {
+      image: corporate2,
+      alt: "Corporate building exterior",
+      title: "Commercial Property",
+      type: "Commercial Construction",
+    },
+    {
+      image: corporate3,
+      alt: "Corporate construction project",
+      title: "Business Facility",
+      type: "Commercial Construction",
+    },
+    {
+      image: residential1,
+      alt: "Residential building",
+      title: "Modern Residence",
+      type: "Residential Construction",
+    },
+    {
+      image: renovatedInterior,
+      alt: "Renovated interior",
+      title: "Interior Renovation",
+      type: "Renovation",
+    },
+    {
+      image: residential2,
+      alt: "Residential building exterior",
+      title: "Residential Development",
+      type: "Residential Construction",
+    },
+    {
+      image: bankCorporate,
+      alt: "Corporate bank building",
+      title: "Banking Facility",
+      type: "Commercial Construction",
+    },
+  ];
+
+
+  const totalPages = Math.ceil(projects.length / 3);
+
+  const visibleProjects = projects.slice(
+    currentSet * 3,
+    currentSet * 3 + 3
+  )
+
+  const previousSet = () => {
+      nextSet((page) => (page - 1 + totalPages) % totalPages)
+  }
+
+  const nextImageSet = () => {
+       nextSet((page) => (page + 1) % totalPages)
+  }
+
   return(
 
-    <section id="Projects" className="section-style">
+    <section id="Projects" className="section-style bg-white">
 
       <div id="project-container">
 
             <div id="project-subtext">
               <h1>Projects</h1>
-              <p>A showcase of the spaces we’ve built, renovated, and brought to life — 
-                each project reflecting our commitment to quality, precision, and lasting results.
-              </p>
+
+              <p>A showcase of the spaces we’ve built, renovated, and brought to life.</p>
 
             </div>
 
             
-            <div id="projects-container">
-              <figure className="project-item">
-                <img src={redCorporate} alt="Red Corporate building" />
-                <figcaption> Demo Information </figcaption>
-              </figure>
+            <div id="projects-container" key={currentSet} className="slide">
+              
+              {visibleProjects.map((project) => (
+                <figure className="project-item" key={project.image}>
+                  <img src={project.image} alt= {project.alt} width={"400"} height={"230"}/>
 
-              <figure className="project-item">
-                <img src={corporateInterior} alt="Interior of Corporate Building" />
-                <figcaption> Demo Information </figcaption>
-              </figure>
+                  <figcaption className="project-info">
+                    <h3> {project.title}</h3>
+                    <p>{project.type}</p>
+                  </figcaption>
 
-              <figure className="project-item">
-                <img src={corporate1} alt="Corporate Building" />
-                <figcaption> Demo Information </figcaption>
-              </figure>
+                </figure>
+                
+              ))}
+            </div>
 
-              <figure className="project-item">
-                <img src={corporate2} alt="Corporate Building" />
-                <figcaption> Demo Information </figcaption>
-              </figure>
+            <div className="project-navigation">
+                <button onClick={previousSet} aria-label="Previous Projects">
+                  <FontAwesomeIcon icon={faAngleLeft}/>
+                </button>
 
-              <figure className="project-item">
-                <img src={corporate3} alt="Corporate Building" />
-                <figcaption> Demo Information </figcaption>
-              </figure>
+                <span>
+                  {currentSet + 1} / {totalPages}
+                </span>
 
-              <figure className="project-item">
-                <img src={residential1} alt="Residential Building" />
-                <figcaption> Demo Information </figcaption>
-              </figure>
-
-              <figure className="project-item">
-                <img src={renovatedInterior} alt="Renovated Interior" />
-                <figcaption> Demo Information </figcaption>
-              </figure>
-
-              <figure className="project-item">
-                <img src={residential2} alt="Residential Building" />
-                <figcaption> Demo Information </figcaption>
-              </figure>
-
+                <button onClick={nextImageSet} aria-label="Next Projects">
+                  <FontAwesomeIcon icon={faAngleRight}/>
+                </button>
             </div>
 
       </div>
-
-
     </section>
   );
 }

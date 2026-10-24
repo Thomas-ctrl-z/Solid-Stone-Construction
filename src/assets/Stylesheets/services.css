@@ -1,56 +1,123 @@
-#service-heading h1 {
-    font-size: larger;
-    font-weight: bold;
-    color: orange;
-}
 
-#service-heading h2 {
-    font-size: large;
-    font-weight: bold;
-    color: black;
-
+#services-container {
+    width: 90%;
+    margin: auto;
 }
 
 #service-heading {
-    padding: 5px;
-    margin: 1rem;
+    margin: 0 0 2.5rem;
+    padding: 0cap;
+    max-width: 700px;
 }
+
+
+#service-heading h1 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #d98722;
+    margin: 0 0 0.75rem;
+}
+
+#service-heading h2 {
+    font-size: clamp(1.7rem, 3vw, 2.5rem);
+    line-height: 1.2;
+    font-weight: 700;
+    color: #171a18;
+    margin: 0;
+    max-width: 650px;
+
+}
+
 
 #services-card-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    align-items: stretch;
 }
+
 
 .service-card {
     border: 1px solid #ddd;
-    padding: 30px;
-    background-color: #f5f5f5;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    padding: 2rem;
+
+    background-color: #f5f4f0;
+
+    box-shadow: 0 5px 18px rgba(23, 26, 24, 0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
 }
 
-.service-card span {
-   
-    padding: 10px;
-    margin: 5px 0px 15px 0px;
-    background-color: orange;
-    border-radius: 3px;
-
-    font-size: 27px;
+.service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(23, 26, 24, 0.09);
 }
 
-.service-icon {
+
+.service-icon, .service-icon{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50px;
-    height: 50px;
+
+    width: 48px;
+    height: 48px;
     padding: 0;
-    margin: 0;
+    margin: 0 0 1.5rem;
+
+    background-color: #f3e5d0;
+    border-radius: 4px;
+    font-size: 1.5rem;
+
 }
 
 .service-card h3 {
-    font-weight: 700;
+    margin: 0 0 0.75rem;
+    color: #171a18;
 
     font-size: 1.25rem;
+    line-height: 1.35;
+    font-weight: 700;
+}
+
+.service-card p {
+    margin: 0;
+    color: #62635f;
+    font-size: 0.95rem;
+    line-height: 1.7;
+
+}
+
+
+@media (max-width: 768px) {
+    #Services.section-style {
+        padding-top: 3.5rem;
+        padding-bottom: 3.5rem;
+    }
+
+    #services-card-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+    }
+
+    .service-card {
+        padding: 1.5rem;
+    }
+}
+
+
+@media (max-width: 520px) {
+    #services-card-container {
+        grid-template-columns: 1fr;
+    }
+
+    #service-heading {
+        margin-bottom: 2rem;
+    }
+
+    .service-card {
+        padding: 1.5rem;
+    }
 }
