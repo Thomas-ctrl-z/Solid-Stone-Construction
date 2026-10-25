@@ -14,7 +14,7 @@
 
 
 #project-subtext {
-   max-width: 700;
+   max-width: 700px;
    margin: 0 0 2.5rem;
    padding: 0;
    text-align: left;
@@ -45,10 +45,10 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.5rem;
     width: 100%;
-    margin: auto;
+    min-width: 0;
+    margin: 0 auto;
 
-    align-items: start;
-    min-height: 320px;
+    align-items: stretch;
 
 }
 
@@ -83,6 +83,7 @@
 
 .project-info {
     padding: 20px;
+    overflow-wrap: anywhere;
 }
 
 .project-info h3 {
@@ -104,7 +105,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
     margin-top: 2.5rem;
     color: #62635f;
     font-size: 0.9rem;
@@ -128,58 +130,47 @@
     color: white;
 }
 
-
-@media (max-width: 900px) {
-  #projects-container {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
-  }
-
-  .project-item img {
-    height: 210px;
-  }
-}
-
 @media (max-width: 520px) {
-  #project-container {
-    width: 100%;
-  }
+    #project-container {
+        width: 90%;
+    }
 
-  #Projects.section-style {
-    padding-top: 3.5rem;
-    padding-bottom: 3.5rem;
-  }
+    #Projects.section-style {
+        padding-top: 3.5rem;
+        padding-bottom: 3.5rem;
+    }
 
-  #projects-container {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
+    #projects-container {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.5rem;
+    }
 
-  #project-subtext {
-    margin-bottom: 2rem;
-  }
+    #project-subtext {
+        margin-bottom: 2rem;
+    }
 
-  #project-subtext p {
-    font-size: 18px;
-  }
+    #project-subtext p {
+        font-size: 18px;
+    }
 
-  .project-item img {
-    height: 240px;
-  }
+    .project-item img {
+        height: 240px;
+    }
 
-  .project-info {
-    padding: 16px;
-  }
+    .project-info {
+        padding: 16px;
+    }
+
+    .project-navigation {
+        column-gap: 0.75rem;
+        row-gap: 0.75rem;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .slide {
-    animation: none;
-  }
-
-  .project-item,
-  .project-item img,
-  .project-navigation button {
-    transition: none;
-  }
+    .project-item,
+    .project-item img,
+    .project-navigation button {
+        transition: none;
+    }
 }

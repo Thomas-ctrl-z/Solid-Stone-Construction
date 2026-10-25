@@ -1,6 +1,5 @@
 #Hero {
     position: relative;
-    height: 95vh;
     overflow: hidden;
 
     display: flex;
@@ -8,6 +7,12 @@
     align-items: center;
     text-align: center;
     background-color: black;
+
+    width: 100%;
+    min-height: 95svh;
+    min-height: 95vh;
+    padding: 40px 5%;
+
 }
 
 .hero-image {
@@ -27,9 +32,11 @@
 
 
 .hero-content {
-    text-align: left;
+    text-align: center;
     z-index: 2;
     max-width: 750px;
+    width: 100%;
+    min-width: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,17 +44,21 @@
 
 }
 
-.hero-content h1, h2 {
+.hero-content h1, .hero-content h2 {
+    max-width: 100%;
+    overflow-wrap: anywhere;
     color: white;
 }
 
 .hero-content h1 {
-    font-size: 3rem;
+    font-size: clamp(2rem, 5vw, 3rem);
+
     font-weight: 600;
 }
 
 .hero-content h2 {
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    line-height: 1.5;
     padding-top: 10px;
     border-top: 5px solid white;
 }
@@ -56,7 +67,7 @@
     color: white;
     text-decoration: underline;
     font-weight: 500;
-    font-size: 30px;
+    font-size: clamp(1.25rem, 4vw, 30px);
     font-family: Impact;
 }
 
@@ -130,5 +141,33 @@
 
     100% {
         opacity: 0;
+    }
+}
+
+@media (max-width: 520px) {
+    #Hero {
+        min-height: 85svh;
+        padding: 32px 20px;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero-content h1 {
+        margin-block: 0.5rem;
+        line-height: 1.2;
+    }
+
+    .hero-content h2 {
+        padding-top: 12px;
+        border-top-width: 3px;
+    }
+
+    #quote-btn {
+        max-width: 100%;
+        margin-top: 24px;
+        padding: 12px 18px;
+        font-size: 1rem;
     }
 }
