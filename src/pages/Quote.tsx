@@ -1,8 +1,5 @@
 import { useState } from "react";
 import React from "react";
-// import React, { useRef } from "react";
-// import emailjs from '@emailjs/browser';
-// import jsPDF from "jspdf";
 import { generateQuotation } from "../assets/utils/generateQuotation";
 
 export default function Quote() {
@@ -44,7 +41,7 @@ export default function Quote() {
 
     function showPopup(): void {
             if (!popupMsg) return;
-            
+
             popupMsg.classList.add("active");
 
             setTimeout(() => {

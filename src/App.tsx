@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {Routes, Route, Link} from "react-router";
+import {Routes, Route, Link, useNavigate} from "react-router";
 import { useLocation } from "react-router";
 import { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -124,8 +124,10 @@ function Navbar(){
 
 function HeroPage() {
 
+  const navigate = useNavigate();
+
   const webpageTransition = () => {
-    window.location.href = "/Quote";
+    navigate("/Quote");
   };
 
   return(
