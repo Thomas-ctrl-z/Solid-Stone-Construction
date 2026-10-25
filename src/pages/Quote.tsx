@@ -1,7 +1,8 @@
 import { useState } from "react";
-import React, { useRef } from "react";
+import React from "react";
+// import React, { useRef } from "react";
 // import emailjs from '@emailjs/browser';
-import jsPDF from "jspdf";
+// import jsPDF from "jspdf";
 import { generateQuotation } from "../assets/utils/generateQuotation";
 
 export default function Quote() {
@@ -17,18 +18,6 @@ export default function Quote() {
         if (!quoteForm.current) return;
 
         const formData = new FormData(quoteForm.current);
-
-        // let clientName = formData.get("client-name") as string;
-        // let companyName = formData.get("company-name") as string;
-        // let phoneNumber = formData.get("phone-number") as string;
-        // let email = formData.get("email") as string;
-        // let projectName = formData.get("project-name") as string;
-        // let projectSize = formData.get("project-size") as string;
-        // let siteAddress = formData.get("site-address") as string;
-        // let startDate = formData.get("start-date") as string;
-        // let endDate = formData.get("completion-date") as string;
-        // let projectDescription = formData.get("project-description") as string;
-        // let companyAddress = formData.get("company-address") as string;
 
         const data = {
              clientName: formData.get("client-name") as string,
@@ -48,13 +37,28 @@ export default function Quote() {
 
         generateQuotation(data);
         
-
-        alert("Submitted.");
+        showPopup();
     }
 
+    const popupMsg = document.getElementById("popup-msg");
+
+    function showPopup(): void {
+            if (!popupMsg) return;
+            
+            popupMsg.classList.add("active");
+
+            setTimeout(() => {
+                popupMsg.classList.remove("active");
+            }, 2000);
+        }
 
     return(
-        <section className="section-style">
+        <main>
+            <aside id="popup-msg">
+                <p>Form Submitted Succesfully</p>
+            </aside>
+
+            <section className="section-style">
             <div className="form-container">
 
                 <div id="quote-header">
@@ -148,5 +152,7 @@ export default function Quote() {
                 </form>
             </div>
         </section>
+        </main>
+        
     )
 }

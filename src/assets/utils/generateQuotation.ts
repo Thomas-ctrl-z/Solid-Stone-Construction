@@ -25,13 +25,11 @@ export function generateQuotation(data: quotationData) {
         format: "a4",
     });
 
-    // ===== REPLACE THESE PLACEHOLDERS =====
     const company = {
         name: data.companyName,
         address: data.companyAddress,
         phone: data.phoneNumber,
         email: data.email,
-        // registration: "Company Registration No.",
     };
 
     const quote = {
@@ -54,7 +52,6 @@ export function generateQuotation(data: quotationData) {
         description: data.projectDescription,
     };
 
-    // Replace with actual form data when ready.
     const items = [
         {
             description: "Labour",
@@ -84,7 +81,6 @@ export function generateQuotation(data: quotationData) {
         0
     );
 
-    // Only apply tax if applicable to the business.
     const taxRate = 0;
     const tax = subtotal * taxRate;
     const total = subtotal + tax;
@@ -379,4 +375,6 @@ export function generateQuotation(data: quotationData) {
     doc.save(`${quote.number}.pdf`);
 
     return doc;
+
+   
 }
