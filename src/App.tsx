@@ -40,6 +40,7 @@ function Navbar(){
 
   const { pathname, hash } = useLocation();
   const isHomePage = pathname === "/";
+  const [isOpen, setisOpen] = useState(false);
 
 
   useEffect(() => {
@@ -81,6 +82,10 @@ function Navbar(){
   
   }, [pathname, hash, isHomePage]);
 
+  //Responsive Nav design 
+
+  
+
   return (
       <header id="header-scroll" style={{
         position: isHomePage ? "fixed" : "static",
@@ -99,13 +104,18 @@ function Navbar(){
     
           </div>
           
-          <div id="nav-links" >
-            <Link to={"/"}>Home</Link>
-            <Link to={"/#About"}>About</Link>
-            <Link to={"/#Services"}>Services</Link>
-            <Link to={"/#Projects"}>Projects</Link>
-            <Link to="/Contact">Contact Us</Link>
+
+          <div id="nav-links" className={isOpen ? "open" : ""} >
+            <Link to={"/"} onClick={() => setisOpen(false)}>Home</Link>
+            <Link to={"/#About"} onClick={() => setisOpen(false)}>About</Link>
+            <Link to={"/#Services"} onClick={() => setisOpen(false)}>Services</Link>
+            <Link to={"/#Projects"} onClick={() => setisOpen(false)}>Projects</Link>
+            <Link to="/Contact" onClick={() => setisOpen(false)}>Contact Us</Link>
           </div>
+
+          <button className="menu-toggle" id="menu-toggle" onClick={()=> setisOpen(!isOpen)} aria-label="Toggle Navigation" aria-expanded="false">
+            {isOpen ? "X" : "☰"}
+          </button>
 
         </nav>
       </header>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import React, { useRef } from "react";
-import emailjs from '@emailjs/browser';
+// import emailjs from '@emailjs/browser';
 import jsPDF from "jspdf";
 import { generateQuotation } from "../assets/utils/generateQuotation";
 
@@ -18,17 +18,17 @@ export default function Quote() {
 
         const formData = new FormData(quoteForm.current);
 
-        let clientName = formData.get("client-name") as string;
-        let companyName = formData.get("company-name") as string;
-        let phoneNumber = formData.get("phone-number") as string;
-        let email = formData.get("email") as string;
-        let projectName = formData.get("project-name") as string;
-        let projectSize = formData.get("project-size") as string;
-        let siteAddress = formData.get("site-address") as string;
-        let startDate = formData.get("start-date") as string;
-        let endDate = formData.get("completion-date") as string;
-        let projectDescription = formData.get("project-description") as string;
-        let companyAddress = formData.get("company-address") as string;
+        // let clientName = formData.get("client-name") as string;
+        // let companyName = formData.get("company-name") as string;
+        // let phoneNumber = formData.get("phone-number") as string;
+        // let email = formData.get("email") as string;
+        // let projectName = formData.get("project-name") as string;
+        // let projectSize = formData.get("project-size") as string;
+        // let siteAddress = formData.get("site-address") as string;
+        // let startDate = formData.get("start-date") as string;
+        // let endDate = formData.get("completion-date") as string;
+        // let projectDescription = formData.get("project-description") as string;
+        // let companyAddress = formData.get("company-address") as string;
 
         const data = {
              clientName: formData.get("client-name") as string,
@@ -144,10 +144,6 @@ export default function Quote() {
                     
                     <button type="submit" className="form-btn">Submit</button>
 
-
-                        {/* Generate:
-                    <h2>Materials & Labour</h2>
-                    <h2>Quotation Details</h2> */}
 
                 </form>
             </div>
